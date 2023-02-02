@@ -1,0 +1,14 @@
+version: 2
+
+sources: 
+  - name: boll_and_branch
+    schema: raw
+    tables: 
+      - name: orders
+        identifier: orders
+      
+      - name: products
+        identifier: products
+      
+      - name: web_events
+        identifier: web_events

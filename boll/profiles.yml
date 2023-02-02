@@ -1,0 +1,12 @@
+boll:
+  target: boll_dev
+  outputs:
+    boll_dev:
+      type: bigquery
+      method: oauth
+      project: data-recruiting
+      dataset: ae_data_challenge_v1_cgoldfeld
+      location: us
+      priority: interactive
+      send_anonymous_usage_stats: false
+      threads: 4
