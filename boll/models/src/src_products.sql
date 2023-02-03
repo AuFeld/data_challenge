@@ -3,17 +3,10 @@ WITH products AS (
 )
 SELECT
     _id AS product_id,
-    _load_at AS loaded_at,
-    category,
-    created_at,
-    updated_at,
-    title,
-    variants.variant_id,
-    variants.sku,
-    variants.title,
-    variants.created_at,
-    variants.updated_at,
-    variants.option1,
-    variants.option2
+    _load_at AS product_loaded_at,
+    category AS product_category,
+    created_at AS product_created_at,
+    updated_at AS prodcut_updated_at,
+    title as product_title
 FROM 
     products CROSS JOIN UNNEST(variants) AS variants
