@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: dim_orders_cleaned
+    description: Cleaned table which contains a record for each order
