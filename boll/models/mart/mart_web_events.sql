@@ -1,8 +1,11 @@
-WITH web_events AS (
-    SELECT * FROM {{ source('boll', 'web_events') }}
+{{ config(
+  materialized = 'table',
+) }}
+WITH stg_web_events AS (
+    SELECT * FROM {{ ref('stg_web_events') }}
 )
 SELECT
-    _id AS web_event_id,
+    web_event_id,
     loaded_at,
     cookie_id,
     customer_id,
@@ -13,5 +16,5 @@ SELECT
     utm_campaign,
     utm_source,
     utm_medium
-FROM 
-    web_events
+FROM
+    stg_web_events

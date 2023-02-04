@@ -18,12 +18,25 @@ SELECT
     variant_title,
     variant_created_at,
     variant_updated_at,
-    variant_option1,
-   CAST(
+    CAST(
         IFNULL(
-            NULL,
+            REGEXP_REPLACE(
+                variant_option1,
+                r'\$',
+                ''
+            ),
             0
-        ) as integer
-    ) as variant_option2
+        ) as numeric
+    ) as variant_option1,
+    CAST(
+        IFNULL(
+            REGEXP_REPLACE(
+                variant_option2,
+                r'\$',
+                ''
+            ),
+            0
+        ) as numeric
+    ) as variant_option2,
 FROM
     src_products

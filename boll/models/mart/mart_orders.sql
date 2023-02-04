@@ -1,10 +1,8 @@
-{{
-  config(
-    materialized = 'view'
-  )
-}}
-WITH src_orders AS (
-    SELECT * FROM {{ ref('src_orders') }}
+{{ config(
+  materialized = 'table',
+) }}
+WITH stg_orders AS (
+    SELECT * FROM {{ ref('stg_orders') }}
 )
 SELECT
     order_id,
@@ -20,4 +18,4 @@ SELECT
     line_items_quantity,
     line_items_line_total_discount
 FROM
-    src_orders
+    stg_orders

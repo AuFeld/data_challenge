@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: mart_web_events
+
+metrics:
+  - name: total_pageviews
+    label: Total Pageviews
+    model: ref('mart_web_events')
+    description: "Count of page type web events"
+    calculation_method: count
+    expression: event_name
+    dimensions:
+      - page
+    config:
+      enabled: true
+    filters:
+      - field: event_name
+        operator: '='
+        value: "'page'"
+  
+  - name: total_web_sessions
+    label: Total Web Sessions
+    model: ref('mart_total_web_sessions')
+    description: "Count of Web Sessions where a 'session' is defined as a series of one or more web events committed by the same cookie with no more than a 30 minute gap between events. Any 30 minute gap indicates a new session"
+    calculation_method: count 
+    expression: web_session 
+    config:
+      enabled: true
+      treat_null_as_zero: true
+  
+  - name: total_bounced_web_sessions
+    label: Total Bounced Web Sessions
+    model: ref('mart_total_bounced_web_sessions')
+    description: "Count of web sessions where total 'page' events is less than or equal to 1"
+    calculation_method: count
+    expression: web_session
+    config:
+      enabled: true
+      treat_null_as_zero: true
+  
+  - name: total_web_users
+    label: Total Web Users
+    model: ref('mart_total_web_users')
+    description: "Distinct count of users in web sessions, where a user is defined as the first known customer_id that is associated with the cookie of the web session. If the session user has no known customer_id then default to the cookie_id."
+    calculation_method: count
+    expression: distinct_users
+    config:
+      enabled: true
+      treat_null_as_zero: true
+  
+  - name: bounce_rate
+    label: Bounce Rate
+    description: "Total Bounced Web Sessions divided by Total Web Sessions"
+    calculation_method: derived
+    expression: "{{ metric('total_bounced_web_sessions') }} / {{ metric('total_web_sessions') }}"
+
+
+    

@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: mart_products
+
+metrics:
+  - name: product_view_rate
+    label: Product View Rate
+    model:
+    description: "Total web sessions that include a `product_viewed` event divided by Total Web Sessions"
+    calculation_method:
+    expression:
+    config:
+      enabled: true
+      treat_null_as_zero: true
+  
+  - name: add_to_cart_rate
+    label: 
+    model:
+    description: "Total web sessions that include a `product_added` event divided by Total Web Sessions"
+    calculation_method:
+    expression:
+    config:
+      enabled: true
+      treat_null_as_zero: true
+  
+  - name: checkout_rate
+    label: 
+    model:
+    description: "Total web sessions that include a `checkout_step_viewed` event divided by Total Web Sessions"
+    calculation_method:
+    expression:
+    config:
+      enabled: true
+      treat_null_as_zero: true
+  
+  - name: signup_rate
+    label: 
+    model:
+    description: "Total web sessions that include a `email_sign_up` event divided by Total Web Sessions"
+    calculation_method:
+    expression:
+    config:
+      enabled: true
+      treat_null_as_zero: true
+  
+  - name: conversion_rate
+    label: 
+    model:
+    description: "Total web sessions that include a `order_completed` event divided by Total Web Sessions"
+    calculation_method:
+    expression:
+    config:
+      enabled: true
+      treat_null_as_zero: true
+   
