@@ -6,50 +6,49 @@ models:
 metrics:
   - name: product_view_rate
     label: Product View Rate
-    model:
+    model: ref('mart_product_view_rate')
     description: "Total web sessions that include a `product_viewed` event divided by Total Web Sessions"
-    calculation_method:
-    expression:
+    calculation_method: average
+    expression: product_view_rate
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: add_to_cart_rate
-    label: 
-    model:
+    label: Add to Cart Rate
+    model: ref('mart_add_to_cart_rate')
     description: "Total web sessions that include a `product_added` event divided by Total Web Sessions"
-    calculation_method:
-    expression:
+    calculation_method: average
+    expression: add_to_cart_rate
     config:
       enabled: true
       treat_null_as_zero: true
   
   - name: checkout_rate
-    label: 
-    model:
+    label: Checkout Rate
+    model: ref('mart_checkout_rate')
     description: "Total web sessions that include a `checkout_step_viewed` event divided by Total Web Sessions"
-    calculation_method:
-    expression:
+    calculation_method: average
+    expression: checkout_rate
     config:
       enabled: true
       treat_null_as_zero: true
   
   - name: signup_rate
-    label: 
-    model:
+    label: Signup Rate
+    model: ref('mart_signup_rate')
     description: "Total web sessions that include a `email_sign_up` event divided by Total Web Sessions"
-    calculation_method:
-    expression:
+    calculation_method: average
+    expression: signup_rate
     config:
       enabled: true
       treat_null_as_zero: true
   
   - name: conversion_rate
-    label: 
-    model:
+    label: Coversion Rate
+    model: ref('mart_conversion_rate')
     description: "Total web sessions that include a `order_completed` event divided by Total Web Sessions"
-    calculation_method:
-    expression:
+    calculation_method: average
+    expression: conversion_rate
     config:
       enabled: true
       treat_null_as_zero: true

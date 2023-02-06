@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: orders
+  - name: stg_orders
     description: Information regarding orders
     columns:
       - name: order_id
@@ -25,7 +25,7 @@ models:
       - name: line_items
         description: Array of all existing line items associated with each order
   
-  - name: products
+  - name: stg_products
     description: Information regarding products
     columns:
       - name: product_id
@@ -47,7 +47,7 @@ models:
         description: >
           Array of all existing product variants associated with the product, each variant representing a different version of the product
   
-  - name: web_events  
+  - name: stg_web_events  
     description: Information regarding web events
     columns:
       - name: web_event_id

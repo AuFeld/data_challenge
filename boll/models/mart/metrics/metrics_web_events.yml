@@ -24,7 +24,7 @@ metrics:
     model: ref('mart_total_web_sessions')
     description: "Count of Web Sessions where a 'session' is defined as a series of one or more web events committed by the same cookie with no more than a 30 minute gap between events. Any 30 minute gap indicates a new session"
     calculation_method: count 
-    expression: web_session 
+    expression: num_sessions
     config:
       enabled: true
       treat_null_as_zero: true

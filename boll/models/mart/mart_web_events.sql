@@ -1,6 +1,3 @@
-{{ config(
-  materialized = 'table',
-) }}
 WITH stg_web_events AS (
     SELECT * FROM {{ ref('stg_web_events') }}
 )

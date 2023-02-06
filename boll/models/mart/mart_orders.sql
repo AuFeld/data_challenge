@@ -1,6 +1,3 @@
-{{ config(
-  materialized = 'table',
-) }}
 WITH stg_orders AS (
     SELECT * FROM {{ ref('stg_orders') }}
 )

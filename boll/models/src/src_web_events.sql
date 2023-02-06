@@ -3,7 +3,7 @@ WITH web_events AS (
 )
 SELECT
     _id AS web_event_id,
-    loaded_at,
+    _loaded_at as loaded_at,
     cookie_id,
     customer_id,
     event_name,

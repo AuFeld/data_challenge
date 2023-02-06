@@ -45,10 +45,16 @@ metrics:
   
   - name: total_order_count
     label: Total Order Count
-    model: ref('mart_orders')
+    model: ref('mart_prod_and_orders_joined')
     description: "Count of distinct orders"
     calculation_method: count_distinct
     expression: order_id
+    timestamp: order_created_at
+    dimensions:
+      - order_created_at
+      - product_category 
+      - product_title
+      - variant_sku
     config:
       enabled: true
       treat_null_as_zero: true
@@ -65,7 +71,6 @@ metrics:
   
   - name: average_order_units
     label: Average of Units per Order
-    model: ref('mart_orders')
     description: "Average of units per order"
     calculation_method: derived
     expression: "{{ metric('total_line_item_order_units') }} / {{ metric('total_order_count') }}"
