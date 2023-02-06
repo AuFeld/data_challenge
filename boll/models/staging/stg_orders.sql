@@ -8,9 +8,9 @@ WITH src_orders AS (
 )
 SELECT
     order_id,
-    order_loaded_at,
-    order_created_at,
-    order_updated_at,
+    SAFE_CAST(order_loaded_at AS TIMESTAMP) as order_loaded_at,
+    SAFE_CAST(order_created_at AS TIMESTAMP) as order_created_at,
+    SAFE_CAST(order_updated_at AS TIMESTAMP) as order_updated_at,
     order_subtotal,
     order_total,
     line_items_line_id,
