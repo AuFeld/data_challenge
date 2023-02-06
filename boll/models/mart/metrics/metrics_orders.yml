@@ -12,7 +12,6 @@ metrics:
     expression: line_items_quantity
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: total_line_item_revenue
     label: Total Line Item Revenue
@@ -22,7 +21,6 @@ metrics:
     expression: line_item_revenue
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: total_line_item_discounts
     label: Total Line Item Discounts
@@ -32,7 +30,6 @@ metrics:
     expression: line_item_discounts
     config:
       enabled: true
-      treat_null_as_zero: true
 
   - name: total_gross_revenue
     label: Total Gross Revenue
@@ -41,7 +38,6 @@ metrics:
     expression: "{{ metric('total_line_item_revenue') }} - {{ metric('total_line_item_discounts') }}"
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: total_order_count
     label: Total Order Count
@@ -57,7 +53,6 @@ metrics:
       - variant_sku
     config:
       enabled: true
-      treat_null_as_zero: true
     
   - name: average_order_value
     label: Average Order Value
@@ -67,7 +62,6 @@ metrics:
     expression: order_subtotal
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: average_order_units
     label: Average of Units per Order
@@ -76,7 +70,6 @@ metrics:
     expression: "{{ metric('total_line_item_order_units') }} / {{ metric('total_order_count') }}"
     config:
       enabled: true
-      treat_null_as_zero: true
 
     
   

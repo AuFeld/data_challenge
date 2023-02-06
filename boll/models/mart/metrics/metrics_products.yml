@@ -21,7 +21,6 @@ metrics:
     expression: add_to_cart_rate
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: checkout_rate
     label: Checkout Rate
@@ -31,7 +30,6 @@ metrics:
     expression: checkout_rate
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: signup_rate
     label: Signup Rate
@@ -41,7 +39,6 @@ metrics:
     expression: signup_rate
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: conversion_rate
     label: Coversion Rate
@@ -51,5 +48,4 @@ metrics:
     expression: conversion_rate
     config:
       enabled: true
-      treat_null_as_zero: true
    

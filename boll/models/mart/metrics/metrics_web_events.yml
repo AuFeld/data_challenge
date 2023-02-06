@@ -27,7 +27,6 @@ metrics:
     expression: num_sessions
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: total_bounced_web_sessions
     label: Total Bounced Web Sessions
@@ -37,7 +36,6 @@ metrics:
     expression: web_session
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: total_web_users
     label: Total Web Users
@@ -47,7 +45,6 @@ metrics:
     expression: distinct_users
     config:
       enabled: true
-      treat_null_as_zero: true
   
   - name: bounce_rate
     label: Bounce Rate
